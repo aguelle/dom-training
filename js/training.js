@@ -18,7 +18,7 @@ let scrollCounter = document.getElementById("ex2-scroll-value");
 
 window.addEventListener("scroll", function () {
   let scrollValue = window.scrollY;
-  scrollCounter".textContent = `${scrollValue}`;
+  scrollCounter.textContent = `${scrollValue}`;
 });
 
 /* ------------------------------------ */
