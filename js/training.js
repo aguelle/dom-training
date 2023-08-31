@@ -59,9 +59,38 @@ buttonEx4.addEventListener("click", function () {
 
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
+// Changez la couleur de chacun des boutons ci-dessous en lui affectant une couleur totalement aléatoire à chaque fois qu'il est survolé.
+// const buttons = document.querySelectorAll("#ex5 .button");
+
+// buttons.addEventListener("click", function(){
+//   buttons.classList.toggle("BgColorBue");
+// });
+
+function randomColor() {
+  const char = "0123456789abcdef";
+  let color = "#";
+  for (let k = 0; k < 6; k++) {
+    color += char[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+const buttons = document.querySelectorAll("#ex5 .flex-list .button");
+for (let i in buttons) {
+  buttons[i].addEventListener("mouseover", function () {
+    this.style.backgroundColor = randomColor();
+  });
+}
 
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
+// Faites que la phrase ci-desous s'écrive lettre par lettre à raison de 20 lettres par seconde.
+// Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro officia eos tenetur voluptate consectetur unde quo veritatis architecto ullam labore ea sit inventore saepe dolorem maxime nam, nisi quod.
+
+let textLorem = document.querySelector("#ex6 #ex6-paragraph");
+textLorem.addEventListener("click", function () {
+  this.classList.toggle("BgColorRandom");
+});
 
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
