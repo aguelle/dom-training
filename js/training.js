@@ -47,11 +47,16 @@ document.querySelector("#ex3 .button").addEventListener("click", function () {
 // La deuxième il devient rouge, puis vert.
 // Puis il redevient bleu.
 
+const BgColors = ["BgColorBlue", "BgColorRed", "BgColorGreen"];
 const buttonEx4 = document.querySelector("#ex4 .button");
+let indexClass = 0;
 
 buttonEx4.addEventListener("click", function () {
-  this.classList.toggle("BgColorBlue", "BgColorRed", "BgColorGreen");
+  buttonEx4.classList.remove(BgColors[indexClass]); // Suppr la classe actuelle
+  indexClass = (indexClass + 1) % BgColors.length; // Passe à la classe suivante
+  buttonEx4.classList.add(BgColors[indexClass]); // Ajoute la nouvelle classe
 });
+
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
 
