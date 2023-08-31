@@ -23,10 +23,35 @@ window.addEventListener("scroll", function () {
 
 /* ------------------------------------ */
 /* --- Exercice 3 --- */
+// Au clic sur le bouton ci-dessous, faites changer l'ordre des animaux en déplaçant le premier en dernier.
+
+// const animals = document.getElementById("ex3-animals");
+// const button2 = document.querySelector("#ex1 .button");
+// console.log(button2)
+
+// button2.addEventListener("click", function () {
+//   animals.classList.toggle("hidden");
+// });
+
+document.querySelector("#ex3 .button").addEventListener("click", function () {
+  let animalsList = document.querySelector("#ex3-animals");
+  let firstAnimal = animalsList.firstElementChild;
+  animalsList.removeChild(firstAnimal);
+  animalsList.appendChild(firstAnimal);
+});
 
 /* ------------------------------------ */
 /* --- Exercice 4 --- */
+// Au clic sur le bouton ci-dessous, changer sa couleur de fond.
+// La première fois le bouton devient bleu.
+// La deuxième il devient rouge, puis vert.
+// Puis il redevient bleu.
 
+const buttonEx4 = document.querySelector("#ex4 .button");
+
+buttonEx4.addEventListener("click", function () {
+  this.classList.toggle("BgColorBlue", "BgColorRed", "BgColorGreen");
+});
 /* ------------------------------------ */
 /* --- Exercice 5 --- */
 

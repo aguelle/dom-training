@@ -1,3 +1,14 @@
 .hidden   {
     display: none;
-} 
+}
+
+.BgColorBlue {
+    background-color: blue;
+}
+
+.BgColorRed{
+    background-color: red;
+}
+.BgColorGreen{
+    background-color: green;
+}
