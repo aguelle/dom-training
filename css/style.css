@@ -2,17 +2,34 @@
     display: none;
 }
 
-.BgColorBlue {
+.Btn-Blue {
     background-color: blue;
 }
 
-.BgColorRed{
+.Btn-Red{
     background-color: red;
 }
-.BgColorGreen{
+.Btn-Green{
     background-color: green;
 }
 
 .BgColorRandom{
     background-color:color;
+}
+
+}
+
+
+/* exo2 */
+
+.btn-blue {
+    background-color: lightblue;
+}
+
+.btn-red {
+    background-color: lightcoral;
+}
+
+.btn-green {
+    background-color: lightgreen;
 }

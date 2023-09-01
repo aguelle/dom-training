@@ -47,14 +47,39 @@ document.querySelector("#ex3 .button").addEventListener("click", function () {
 // La deuxième il devient rouge, puis vert.
 // Puis il redevient bleu.
 
-const BgColors = ["BgColorBlue", "BgColorRed", "BgColorGreen"];
-const buttonEx4 = document.querySelector("#ex4 .button");
-let indexClass = 0;
+// const BgColors = ["Btn-blue", "Btn-red", "Btn-gColorGreen"];
+// const buttonEx4 = document.querySelector("#ex4 .button");
+// let indexClass = 0;
 
-buttonEx4.addEventListener("click", function () {
-  buttonEx4.classList.remove(BgColors[indexClass]); // Suppr la classe actuelle
-  indexClass = (indexClass + 1) % BgColors.length; // Passe à la classe suivante
-  buttonEx4.classList.add(BgColors[indexClass]); // Ajoute la nouvelle classe
+// buttonEx4.addEventListener("click", function () {
+//   buttonEx4.classList.remove(BgColors[indexClass]); // Suppr la classe actuelle
+//   indexClass = (indexClass + 1) % BgColors.length; // Passe à la classe suivante
+//   buttonEx4.classList.add(BgColors[indexClass]); // Ajoute la nouvelle classe
+// });
+
+const button4 = document.querySelector("#ex4 .button");
+let clickCounter = 0;
+
+const orgBtnClass = button4.className;
+
+const classList = ["btn-blue", "btn-red", "btn-green"];
+
+button4.addEventListener("click", function () {
+  button4.className =
+    orgBtnClass + " " + classList[clickCounter % classList.length];
+  clickCounter++;
+
+  // switch (clickCounter) {
+  //     case 1:
+  //         button4.className = orgBtnClass + ' btn-blue'; //BLEU
+  //         break;
+  //     case 2:
+  //         button4.className = orgBtnClass + ' btn-red'; //BLEU
+  //         break;
+  //     default:
+  //         button4.className = orgBtnClass + ' btn-green'; //BLEU
+  //         clickCounter = 0;
+  // }
 });
 
 /* ------------------------------------ */
@@ -75,22 +100,30 @@ function randomColor() {
   return color;
 }
 
-const buttons = document.querySelectorAll("#ex5 .flex-list .button");
-for (let i in buttons) {
-  buttons[i].addEventListener("mouseover", function () {
-    this.style.backgroundColor = randomColor();
-  });
-}
+// const buttons = document.querySelectorAll(".js-ex5-btn .button");
+// for (let i in buttons) {
+//   // buttons[i].addEventListener("mouseover", function () {
+//     this.style.backgroundColor = randomColor();
+//   });
+// }
 
 /* ------------------------------------ */
 /* --- Exercice 6 --- */
 // Faites que la phrase ci-desous s'écrive lettre par lettre à raison de 20 lettres par seconde.
 // Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro officia eos tenetur voluptate consectetur unde quo veritatis architecto ullam labore ea sit inventore saepe dolorem maxime nam, nisi quod.
 
-let textLorem = document.querySelector("ex6-paragraph");
-textLorem.addEventListener("click", function () {
-  this.classList.toggle("hidden");
-});
+const paragraph = document.querySelector("#ex6-paragraph");
+let text6 = paragraph.innerText;
+paragraph.innerText = "";
+// let i = 0;
+const t = setInterval(() => {
+  paragraph.textContent += text6[0];
+  text6 = text6.substring(1);
+  if (text6.length < 1) clearInterval(t);
+  // paragraph.textContent += text6[i];
+  // i++;
+  // if (i > text6.length - 1) clearInterval(t);
+}, 50);
 
 /* ------------------------------------ */
 /* --- Exercice 7 --- */
@@ -104,5 +137,26 @@ const taskList = [
   "🌳 Tondre la pelouse",
 ];
 
+document.querySelector("#ex7-button").addEventListener("click", function () {
+  // task List is empty
+  if (taskList.length === 0) return;
+
+  const li = document.createElement("li");
+  li.textContent = taskList.pop();
+  li.classList.add("task-list-task");
+  document.querySelector("#ex7-list").appendChild(li);
+
+  // li.addEventListener('click', function(){
+  //   taskList.push(this.textContent);
+  //   this.remove();
+  //   console.log(taskList);
+  // })
+});
+document.querySelector("#ex7-list").addEventListener("click", function (event) {
+  if (!event.target.classList.contains("task-list-task")) return;
+  taskList.push(event.target.textContent);
+
+  event.target.remove();
+});
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
