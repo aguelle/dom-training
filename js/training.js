@@ -14,11 +14,13 @@ button1.addEventListener("click", function () {
 /* --- Exercice 2 --- */
 // Lorsque l'on fait défiler cette page dans le navigateur, affichez la valeur du défilement vertical en complétant la phrase ci-dessous.
 
-let scrollCounter = document.getElementById("ex2-scroll-value");
+// let scrollCounter = document.getElementById("ex2-scroll-value");
+let scrollCounter = document.querySelector("#ex2-scroll-value");
 
 window.addEventListener("scroll", function () {
-  let scrollValue = window.scrollY;
-  scrollCounter.textContent = `${scrollValue}`;
+  // let scrollValue = window.scrollY;
+  // scrollCounter.textContent = `${scrollValue}`;
+  scrollCounter.textContent = Math.floor(window.scrollY);
 });
 
 /* ------------------------------------ */
@@ -87,9 +89,9 @@ for (let i in buttons) {
 // Faites que la phrase ci-desous s'écrive lettre par lettre à raison de 20 lettres par seconde.
 // Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae porro officia eos tenetur voluptate consectetur unde quo veritatis architecto ullam labore ea sit inventore saepe dolorem maxime nam, nisi quod.
 
-let textLorem = document.querySelector("#ex6 #ex6-paragraph");
+let textLorem = document.querySelector("ex6-paragraph");
 textLorem.addEventListener("click", function () {
-  this.classList.toggle("BgColorRandom");
+  this.classList.toggle("hidden");
 });
 
 /* ------------------------------------ */
