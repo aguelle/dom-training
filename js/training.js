@@ -37,9 +37,7 @@ window.addEventListener("scroll", function () {
 
 document.querySelector("#ex3 .button").addEventListener("click", function () {
   let animalsList = document.querySelector("#ex3-animals");
-  let firstAnimal = animalsList.firstElementChild;
-  animalsList.removeChild(firstAnimal);
-  animalsList.appendChild(firstAnimal);
+  animalsList.appendChild(animalsList.firstElementChild);
 });
 
 /* ------------------------------------ */
