@@ -91,14 +91,21 @@ button4.addEventListener("click", function () {
 //   buttons.classList.toggle("BgColorBue");
 // });
 
-function randomColor() {
-  const char = "0123456789abcdef";
-  let color = "#";
-  for (let k = 0; k < 6; k++) {
-    color += char[Math.floor(Math.random() * 16)];
-  }
-  return color;
+// const char = "0123456789abcdef";
+// let color = "#";
+// for (let k = 0; k < 6; k++) {
+  //   color += char[Math.floor(Math.random() * 16)];
+  // }
+  function getRandomColor() {
+  return '#' + Math.floor(Math.random() * (256**3)).toString(16);
 }
+let btnList = document.querySelector(".js-ex5-btn");
+
+btnList.addEventListener("mouseover" , function (event){
+if (event.target.classList.contains('button')){
+  event.target.style.backgroundColor = getRandomColor()};
+});
+
 
 // const buttons = document.querySelectorAll(".js-ex5-btn .button");
 // for (let i in buttons) {
@@ -114,6 +121,9 @@ function randomColor() {
 
 const paragraph = document.querySelector("#ex6-paragraph");
 let text6 = paragraph.innerText;
+
+// console.log(text6);
+
 paragraph.innerText = "";
 // let i = 0;
 const t = setInterval(() => {
@@ -160,3 +170,22 @@ document.querySelector("#ex7-list").addEventListener("click", function (event) {
 });
 /* ------------------------------------ */
 /* --- Exercice 8 --- */
+// Chacun des boutons ci-dessous correspond à compteur à zéro (point de vie, force, bouclier).
+
+// Faites qu'au clic sur l'un des bouton, le compteur correspondant augmente de 5 points et ne dépasse pas 100.
+// A chaque augmentation, faites avancer visuellement la barre de progression correspondante.
+
+let counters = {};
+
+document.querySelectorAll("[data-progress-id]").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const progressId = this.dataset.progressId;
+    if (counters[progressId] === undefined) counters[progressId] = 0;
+    if (counters[progressId] >= 100) return;
+
+    counters[progressId] += 5;
+
+    document.getElementById(progressId).style.width =
+      counters[progressId] + "%";
+  });
+});

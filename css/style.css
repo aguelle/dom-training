@@ -2,14 +2,14 @@
     display: none;
 }
 
-.Btn-Blue {
+.btn-blue {
     background-color: blue;
 }
 
-.Btn-Red{
+.btn-red{
     background-color: red;
 }
-.Btn-Green{
+.btn-green{
     background-color: green;
 }
 
@@ -17,19 +17,3 @@
     background-color:color;
 }
 
-}
-
-
-/* exo2 */
-
-.btn-blue {
-    background-color: lightblue;
-}
-
-.btn-red {
-    background-color: lightcoral;
-}
-
-.btn-green {
-    background-color: lightgreen;
-}
